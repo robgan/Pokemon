@@ -41,7 +41,17 @@ def baseStamina():
         if (pokemonStats[i]["base_stamina"] > highestStamina):
             highestStamina = pokemonStats[i]["base_stamina"]
             highestStaminaPokemon = pokemonStats[i]["pokemon_name"]
-    return "Highest Stamina: " + highestStaminaPokemon + ": " + str(highestStamina)
+    return "Highest stamina: " + highestStaminaPokemon + ": " + str(highestStamina)
+
+def baseTotal():
+    highestTotal = 0
+    highestTotalPokemon = ""
+    for i in range(len(pokemonStats)):
+        total = pokemonStats[i]["base_attack"] + pokemonStats[i]["base_defense"] + pokemonStats[i]["base_stamina"]
+        if (total > highestTotal):
+            highestTotal = total
+            highestTotalPokemon = pokemonStats[i]["pokemon_name"]
+    return "Highest total: " + highestTotalPokemon + ": " + str(highestTotal)
 
 def averageAttack():
     total = 0
@@ -60,6 +70,12 @@ def averageStamina():
     for i in range(len(pokemonStats)):
         total += pokemonStats[i]["base_stamina"]
     return "Average stamina: "  + str(total/len(pokemonStats))
+
+def averageTotal():
+    total = 0
+    for i in range(len(pokemonStats)):
+        total += pokemonStats[i]["base_attack"] + pokemonStats[i]["base_defense"] + pokemonStats[i]["base_stamina"]
+    return "Average total stats: " + str(total/len(pokemonStats))
  
 print(baseAttack())
 print(averageAttack())
@@ -67,6 +83,8 @@ print(baseDefense())
 print(averageDefense())
 print(baseStamina())
 print(averageStamina())
+print(baseTotal())
+print(averageTotal())
             
     
     
